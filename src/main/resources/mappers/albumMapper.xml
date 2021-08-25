@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!-- 해당 부분은 mybatis 문법 에러를 잡아 주는 용도? -->
+<!-- 
+여기는 마이바티스(mybatis) 문법으로 쓰면 됨 
+여기 있는 값을 읽어 내고 쓰기에 마음대로 쓰면 안된다.
+-->
+
+<mapper namespace="">
+
+</mapper>
