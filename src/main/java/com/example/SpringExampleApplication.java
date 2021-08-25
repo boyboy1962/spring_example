@@ -14,9 +14,9 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 //@ComponentScan(basePackages={"com", "com.example", "com.marobiana"})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) // 이게 데이타 소스는 보지 않게다 해서 DB는 찾지 않는다.
-@MapperScan(basePackages = "com.example.*") // mapper scan 추가!!!
+@MapperScan(basePackages = "com.example.*") // mapper scan 추가!!! DB위함이다.
 @SpringBootApplication
-@ComponentScan(basePackages = "com.marobiana")
+// @ComponentScan(basePackages = "com.marobiana") // com.marobia 모든 Bean을 사용한다.(404 에러가 생긴 이유) 바보야...
 public class SpringExampleApplication {
 
 	public static void main(String[] args) {

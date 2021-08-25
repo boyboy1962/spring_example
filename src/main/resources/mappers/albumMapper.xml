@@ -6,6 +6,11 @@
 여기 있는 값을 읽어 내고 쓰기에 마음대로 쓰면 안된다.
 -->
 
-<mapper namespace="">
-
+<mapper namespace="com.example.lesson02.dao.AlbumDAO"> <!-- 다오의 위치를 namespace에 적어야한다. -->
+	<select id="selectAlbumList" resultType="com.example.lesson02.model.Album"> <!-- 모델의 위치르 적어야한다. -->
+		SELECT
+			*
+		FROM
+			`album`
+	</select>
 </mapper>
