@@ -1,0 +1,10 @@
+diff a/src/main/java/com/example/lesson01/Ex01RestController.java b/src/main/java/com/example/lesson01/Ex01RestController.java	(rejected hunks)
+@@ -41,7 +41,7 @@
+ 		data.setId(100);
+ 		data.setName("신바다");
+ 
+-		//return new ResponseEntity<>(data, HttpStatus.OK);						// 200 OK
++		//reTturn new ResponseEntity<>(data, HttpStatus.OK);						// 200 OK
+ 		return new ResponseEntity<>(data, HttpStatus.INTERNAL_SERVER_ERROR); 	// 500 error 
+ 	}
+ }
