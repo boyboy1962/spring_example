@@ -5,6 +5,7 @@ import java.util.Date;
 public class Review {
 	
 	private int id;
+	private int storeId;
 	private String storeName;
 	private String menu;
 	private String userName;
@@ -19,6 +20,12 @@ public class Review {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}	
+	public int getStoreId() {
+		return storeId;
+	}
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
 	}
 	public String getStoreName() {
 		return storeName;
