@@ -50,4 +50,14 @@ public class ReviewRestController {
 		return "성공한 행의 개수는 : " + rowCount;
 	}
 	
+	// 요청 URL: http://localhost/lesson03/ex04?id=24
+	@RequestMapping("/lesson03/ex04")
+	public String ex04(
+				@RequestParam("id") int id
+			) {
+
+		int rowCount = reviewBO.deleteReviewById(id);
+		
+		return "삭제 완료 : " + rowCount;
+	}
 }
