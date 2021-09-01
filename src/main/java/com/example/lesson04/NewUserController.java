@@ -1,14 +1,23 @@
 package com.example.lesson04;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.lesson04.bo.NewUserBO;
+import com.example.lesson04.model.NewUser;
+
 @RequestMapping("/lesson04")
 @Controller
 public class NewUserController {
+	
+	@Autowired
+	private NewUserBO newUserBO;
 	
 	// 요청 URL : http://localhost/lesson04/ex01/1
 	@RequestMapping(method = RequestMethod.GET, path = "/ex01/1") // 이것은 get 방식이다.
@@ -28,6 +37,19 @@ public class NewUserController {
 		// DB Insert
 		
 		return "lesson04/afterAddUser";
+	}
+	
+	
+	@GetMapping("/ex1/last_user")
+	public String getLastUser(Model model) {
+		
+		NewUser user = newUserBO.getLastNameUser();
+		
+		model.addAttribute("user", user);
+		model.addAttribute("title", "회원 정보");
+		
+		return "lesson04/lastUser";
+		
 	}
 	
 }
