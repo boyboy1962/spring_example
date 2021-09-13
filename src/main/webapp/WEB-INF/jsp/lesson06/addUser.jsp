@@ -27,34 +27,82 @@
 			<input type="text" class="form-control" name="email">
 			<b>자기소계: </b>
 			<textarea rows="10" cols="30" class="form-control" name="introduce"></textarea>
-			<button type="submit" class="btn">추가</button>
+			<!-- <button type="submit" id="addBtn" class="btn">추가</button> -->
+			<input type="submit" id="addBtn" class="btn btn-success" value="추가">
 		</form>
 	</div>
 	
-	<script type="text/javascript">
+	<script>
 		$(document).ready(function(){
-			// (1) jquery의 submit 기능 이용하기
+			alert("이건된다.")
+			/* // (1) jquery의 submit 기능 이용하기
 			$('#form').on('submit', function(e){
-				e.preventDefault();	// 기본으로 submit 되는 것을 막는다. 이걸하지 않으면 그냥 서브 및이 되버린다.
+				//e.preventDefault();	// 기본으로 submit 되는 것을 막는다. 이걸하지 않으면 그냥 서브 및이 되버린다.
 				alert("추가 버튼 클릭")
 				
 				// validation
 				let name = $('input[name=name]').val().trim(); //이름 가져와서 앞뒤 여백 제거
 				if(name =='') {
 					alert("이름을 입력하세요.");
-					return;
+					return false;
 				}
 				
 				let yyyymmdd = $('input[name=yyyymmdd]').val().trim()
 				if(yyyymmdd =='') {
 					alert("생년월일 입력하세요.");
-					return;
+					return false;
 				}
 				
-				$(this).submit();
+				$(this).submit(); 
+			})*/
+
+			
+			$('#addBtn').on('click', function(e){
+				alert("에러 잇나?")
+//				//e.preventDefault();
+//				//alert("추가버튼 클릭")
+//				
+				let name = $('input[name=name]').val().trim(); //이름 가져와서 앞뒤 여백 제거
+				if(name =='') {
+					alert("이름을 입력하세요.");
+					return false;
+				}
+
+				let yyyymmdd = $('input[name=yyyymmdd]').val().trim(); //이름 가져와서 앞뒤 여백 제거
+				if(yyyymmdd =='') {
+					alert("생년월일 입력하세요.");
+					return false;
+				}
 				
-			})
-		})
+				if (isNaN(yyyymmdd)){
+					alert("숫자만 입력이 가능합니다.");
+					return false; 
+				}
+				alert("체크포인트1");
+				let email = $('input[name=email]').val().trim();
+				alert("체크포인트2");
+				let introduce = $('textarea[name=introduce]').val();	
+				alert("체크포인트3");
+				// AJAX: 폼태그와 상관없이 비동기로 별도 요청
+				/*$.ajax({
+					type: 'POST'
+					, url: '/lesson06/ex01/add_user'
+					, data: {"name", "yyyymmdd", "email", "introduce"}
+					, success: function(data) {	// AJAX 결과는 String이다.
+						alert(data);
+					}// 성공하면 (200) 여기에 들어온다.
+					, complete: function(data){ 
+						alert("완료");
+						location.href = "/lesson06/ex01/afterAddUser"
+						// location.reload();
+					}// 실패하더라도 여기로 들어온다.
+					, error: function(e) {
+						alert("에러 " + e);
+					}
+				});*/
+				
+			});
+		});
 	</script>
 	
 </body>
