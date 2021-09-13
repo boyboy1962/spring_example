@@ -17,8 +17,9 @@
 <body>
 	<div>
 		<h1>회원정보추가</h1>
-		
-		<form id="form" action="/lesson06/ex01/add_user" method="post">
+
+<!-- 아래의 submit을 사용하지 않기 위해 그리고 AJAX를 사용하기 위한 조치이다 -->		
+<!-- 		<form id="form" action="/lesson06/ex01/add_user" method="post"> -->
 			<b>이름: </b>
 			<input type="text" class="form-control" name="name">
 			<b>생년월일: </b>
@@ -27,9 +28,9 @@
 			<input type="text" class="form-control" name="email">
 			<b>자기소계: </b>
 			<textarea rows="10" cols="30" class="form-control" name="introduce"></textarea>
-			<!-- <button type="submit" id="addBtn" class="btn">추가</button> -->
-			<input type="submit" id="addBtn" class="btn btn-success" value="추가">
-		</form>
+<!--		<button type="submit" id="addBtn" class="btn">추가</button> -->
+			<input type="button" id="addBtn" class="btn btn-success" value="추가"> <!-- AJAX를 사용하게 된다면 submit이 아니라 button을 사용해야한다. 매우 중요. -->
+<!-- 		</form> -->
 	</div>
 	
 	<script>
@@ -59,7 +60,7 @@
 			
 			$('#addBtn').on('click', function(e){
 				alert("에러 잇나?")
-//				//e.preventDefault();
+				e.preventDefault(); // 이것이 없으면 submit으로 넘어간다.
 //				//alert("추가버튼 클릭")
 //				
 				let name = $('input[name=name]').val().trim(); //이름 가져와서 앞뒤 여백 제거
@@ -84,22 +85,22 @@
 				let introduce = $('textarea[name=introduce]').val();	
 				alert("체크포인트3");
 				// AJAX: 폼태그와 상관없이 비동기로 별도 요청
-				/*$.ajax({
+				$.ajax({
 					type: 'POST'
 					, url: '/lesson06/ex01/add_user'
-					, data: {"name", "yyyymmdd", "email", "introduce"}
+					, data: {"name":name, "yyyymmdd":yyyymmdd, "email":email, "introduce":introduce}
 					, success: function(data) {	// AJAX 결과는 String이다.
 						alert(data);
 					}// 성공하면 (200) 여기에 들어온다.
 					, complete: function(data){ 
 						alert("완료");
-						location.href = "/lesson06/ex01/afterAddUser"
+						location.href = "/lesson06/ex01/afterAddUser";
 						// location.reload();
 					}// 실패하더라도 여기로 들어온다.
 					, error: function(e) {
 						alert("에러 " + e);
 					}
-				});*/
+				});
 				
 			});
 		});
