@@ -24,7 +24,7 @@
 		
 		<div id="nameStatusArea"></div><br>
 		
-		<button type="button" class="btn btn-primary mt-3" id="joinBtn">회원가입</button>
+		<button type="submit" class="btn btn-primary mt-3" id="joinBtn">회원가입</button>
 	</div>
 	
 	<script>
@@ -50,15 +50,27 @@
 						alert(data.is_duplication);
 						if (data.is_duplication == true){
 						$('#nameStatusArea').append('<small class="text-danger"> 중복된 이름입니다.</small>')							
-						} else {							
-						$('#nameStatusArea').append('<small class="text-sucess"> 사용이 가능한 이름입니다.</small>')							
-						}
+						} //else {							
+						//$('#nameStatusArea').append('<small class="text-sucess"> 사용이 가능한 이름입니다.</small>')							
+						//}
 					}
 					, error: function(e){
 						alert("AJAX 통신이 실패:" + e);
 					}
 				});
 				
+			});
+			
+			//회원가입 동작 (버튼 클릭)
+			$('#joinBtn').on('click', function(){
+				
+				console.log($('#nameStatusArea').children().length);
+				
+				if($('#nameStatusArea').children().length == 0) {
+					alert("서브밋 가능");
+				} else {
+					alert("서브밋 불가");
+				}
 			});
 		});
 	</script>
